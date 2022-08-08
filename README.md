@@ -19,7 +19,7 @@
 
 3. Ejecuta las migraciones.
 
-``python manage.py makemigrations```
+```python manage.py makemigrations```
 ```python manage.py migrate```
 
 4. Crea un superusuario.

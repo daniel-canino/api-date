@@ -50,6 +50,9 @@ class GetUserVieSet(viewsets.ModelViewSet):
 class UserLoginApiView(ObtainAuthToken):
     renderer_classes = api_settings.DEFAULT_RENDERER_CLASSES
 
+    def get(self, request, *args, **kwargs):
+        message = "Bienvenido"
+        return Response({'message': message})
 
     def post(self, request, *args, **kwargs):
         serializer = self.serializer_class(data=request.data, context={'request': request})
@@ -71,8 +74,12 @@ class CalculateDateApiView(APIView):
 
     serializer_class = serializers.DateSerializer
     authentication_classes = (TokenAuthentication,)
-    permission_classes = (permissions.CalculateDatePermissions,IsAuthenticated)
+    permission_classes = (permissions.CalculateDatePermissions,)
  
+
+    def get(self, request, *args, **kwargs):
+        message = "Bienvenido"
+        return Response({'message': message})
     
     def post(self, request):
         serializer = self.serializer_class(data=request.data)

@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-gby6luais*w67hh#4&$c^b&6s8o+p^mfm70c16_sq_(v^iz@=x
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://api-date-idfb.onrender.com']
+ALLOWED_HOSTS = []
 
 JWT_SECRET_KEY = os.environ.get('JWT_SECRET_KEY')
 CORS_ORIGIN_ALLOW_ALL = True
@@ -134,3 +134,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'user_api.UserProfile'
 
 # Configure Django App for Heroku.
+import django_heroku
+django_heroku.settings(locals())

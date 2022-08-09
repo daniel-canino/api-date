@@ -36,3 +36,6 @@ https://api-date.herokuapp.com/
 2. https://api-date.herokuapp.com/user/historial
 3. https://api-date.herokuapp.com/user/user
 4. https://api-date.herokuapp.com/date
+
+### Link de Postman 
+https://www.getpostman.com/collections/baa39a49aeedd61082af

@@ -10,6 +10,6 @@ router.register('historial', views.GetUserVieSet)
 
 urlpatterns = [
     path('user/', include(router.urls)),
-    path('', views.UserLoginApiView.as_view() ),
+    path('login/', views.UserLoginApiView.as_view() ),
     path('date/', views.CalculateDateApiView.as_view()),
 ]

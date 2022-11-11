@@ -7,7 +7,6 @@ from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.authtoken.models import Token
 
-from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.settings import api_settings
 
 from user_api import models, serializers, permissions
@@ -44,30 +43,6 @@ class GetUserVieSet(viewsets.ModelViewSet):
                 message = f'Los dias restantes serían {result.days}'
                 return Response({'message' : message})
 
-
-    
-
-class UserLoginApiView(ObtainAuthToken):
-    renderer_classes = api_settings.DEFAULT_RENDERER_CLASSES
-
-    def get(self, request, *args, **kwargs):
-        message = "Bienvenido"
-        return Response({'message': message})
-
-    def post(self, request, *args, **kwargs):
-        serializer = self.serializer_class(data=request.data, context={'request': request})
-
-        serializer.is_valid(raise_exception=True)
-        user = serializer.validated_data['user']
-        token, created = Token.objects.get_or_create(user=user)
-
-        return Response({
-            'token': token.key,
-            'user_id': user.pk,
-            'email': user.email
-        })
-
-    
 
 
 class CalculateDateApiView(APIView):
